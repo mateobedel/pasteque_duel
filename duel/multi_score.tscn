@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://j26wp0qwv20w"]
+
+[ext_resource type="Script" path="res://duel/multi_score.gd" id="1_su2qt"]
+[ext_resource type="FontFile" uid="uid://dodk2543gdou3" path="res://ressources/Poppins-Black.ttf" id="2_3yvp7"]
+
+[sub_resource type="Animation" id="Animation_kmh8y"]
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(90, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_cv56j"]
+resource_name = "bump"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Label:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(90, -0.25, 0, 0.0217629, -0.5, 101.7, -0.00435257, 1, 0.115055, 4, 87.9, 0, 1, 0.25, 0),
+"times": PackedFloat32Array(0, 0.0391732, 0.17628)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0onu6"]
+_data = {
+"RESET": SubResource("Animation_kmh8y"),
+"bump": SubResource("Animation_cv56j")
+}
+
+[node name="multi_score" type="Node2D"]
+script = ExtResource("1_su2qt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = -2.0
+offset_top = -87.0
+offset_right = 1077.0
+offset_bottom = 87.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0.6, 1)
+theme_override_fonts/font = ExtResource("2_3yvp7")
+theme_override_font_sizes/font_size = 90
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0onu6")
+}

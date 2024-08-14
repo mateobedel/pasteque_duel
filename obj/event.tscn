@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmnp2jd6mqw02"]
+
+[ext_resource type="Script" path="res://obj/Event.gd" id="1_2yj2l"]
+
+[node name="Event" type="Node2D"]
+script = ExtResource("1_2yj2l")
+
+[node name="can_fruit_merge" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="can_fruit_merge" to="." method="_on_can_fruit_merge_timeout"]

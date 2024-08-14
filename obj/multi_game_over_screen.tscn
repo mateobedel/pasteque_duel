@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcupm3jhuvwxx"]
+
+[ext_resource type="Theme" uid="uid://bw776ul7fdkxe" path="res://ressources/bouton.tres" id="1_am1ne"]
+[ext_resource type="Script" path="res://obj/multi_game_over_screen.gd" id="1_fi20s"]
+[ext_resource type="Theme" uid="uid://bys3t6fsxqsqo" path="res://ressources/group.tres" id="2_b2e2q"]
+
+[node name="multi_game_over_screen" type="Node2D"]
+script = ExtResource("1_fi20s")
+
+[node name="TITLE" type="Label" parent="."]
+offset_left = 416.0
+offset_top = 17.0
+offset_right = 1543.0
+offset_bottom = 185.0
+theme = ExtResource("1_am1ne")
+text = "PARTIE TERMINEE !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 330.0
+offset_top = 821.0
+offset_right = 1639.0
+offset_bottom = 999.0
+theme_override_constants/separation = 162
+alignment = 1
+
+[node name="menu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_am1ne")
+text = "MENU"
+
+[node name="rejouer" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_am1ne")
+text = "REJOUER"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+offset_left = 332.0
+offset_top = 223.0
+offset_right = 1609.0
+offset_bottom = 694.0
+theme_override_constants/separation = 83
+alignment = 1
+
+[node name="gagnat" type="PanelContainer" parent="HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_b2e2q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/gagnat"]
+layout_mode = 2
+
+[node name="titre" type="Label" parent="HBoxContainer2/gagnat/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_am1ne")
+theme_override_font_sizes/font_size = 100
+text = "GAGNANT : "
+
+[node name="P" type="Label" parent="HBoxContainer2/gagnat/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_am1ne")
+theme_override_colors/font_color = Color(0, 1, 0.698039, 1)
+theme_override_font_sizes/font_size = 80
+text = "P1 !!!"
+
+[node name="score" type="PanelContainer" parent="HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_b2e2q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer2/score"]
+layout_mode = 2
+
+[node name="titre" type="Label" parent="HBoxContainer2/score/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_am1ne")
+theme_override_font_sizes/font_size = 100
+text = "SCORE : "
+
+[node name="S" type="Label" parent="HBoxContainer2/score/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_am1ne")
+theme_override_colors/font_color = Color(0, 1, 0.698039, 1)
+theme_override_font_sizes/font_size = 80
+text = "P1 : 0
+P2 : 0"
+
+[connection signal="pressed" from="HBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="HBoxContainer/rejouer" to="." method="_on_rejouer_pressed"]

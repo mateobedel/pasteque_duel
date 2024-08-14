@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bw776ul7fdkxe"]
+
+[ext_resource type="FontFile" uid="uid://dodk2543gdou3" path="res://ressources/Poppins-Black.ttf" id="1_oc26c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6bym"]
+content_margin_left = 50.0
+content_margin_top = 10.0
+content_margin_right = 50.0
+content_margin_bottom = 0.0
+bg_color = Color(0.145098, 0.439216, 0.490196, 1)
+skew = Vector2(0, 0.03)
+border_color = Color(0.129412, 0.419608, 0.431373, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0.203922, 0.686275, 0.6, 1)
+shadow_size = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kn6y8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ppu7"]
+content_margin_left = 50.0
+content_margin_top = 10.0
+content_margin_right = 50.0
+content_margin_bottom = 0.0
+bg_color = Color(0.0980392, 0.811765, 0.52549, 1)
+skew = Vector2(0, 0.03)
+border_color = Color(0.129412, 0.419608, 0.431373, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0.2, 0.313726)
+shadow_size = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j2kfb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0kh3"]
+content_margin_left = 50.0
+content_margin_top = 10.0
+content_margin_right = 50.0
+content_margin_bottom = 0.0
+bg_color = Color(0.129412, 0.403922, 0.431373, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.0823529, 0.180392, 0.278431, 1)
+border_blend = true
+
+[resource]
+default_font = ExtResource("1_oc26c")
+default_font_size = 120
+Button/styles/disabled = SubResource("StyleBoxFlat_l6bym")
+Button/styles/focus = SubResource("StyleBoxEmpty_kn6y8")
+Button/styles/hover = SubResource("StyleBoxFlat_l6bym")
+Button/styles/normal = SubResource("StyleBoxFlat_7ppu7")
+Button/styles/pressed = SubResource("StyleBoxFlat_l6bym")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_j2kfb")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_y0kh3")

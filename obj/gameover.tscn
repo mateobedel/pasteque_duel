@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt10dv0yiheoh"]
+
+[ext_resource type="FontFile" uid="uid://dodk2543gdou3" path="res://ressources/Poppins-Black.ttf" id="1_yx4c1"]
+[ext_resource type="Script" path="res://obj/gameover.gd" id="2_bqhur"]
+
+[sub_resource type="Animation" id="Animation_dba8t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_13wqp"]
+resource_name = "game_over"
+length = 1.97
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0, 1, 130, -0.423913, 9, 0.0428569, -1.71489, 100, -0.00102133, 1, 0.0428979, -32.3607, 100, -0.102632, -31, 0.000778437, 4, 130, -0.107924, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.452512, 0.556652, 1.40419, 1.57213, 1.95933)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-3.14159, -0.25, 0, 0, 2.93667, 0, -0.25, 0, 0.0397409, 0.0059201, 0.0872665, -0.0570665, 0.00222445, 0.0665204, -0.00195409, -0.0872665, -0.0540541, 0.00125866, 0.0654472, 0.00683005, 0.0872665, -0.0570665, 0.00222445, 0.0665204, -0.00195409, -0.0872665, -0.0540541, 0.00125866, 0.0654472, 0.00683005, 0.0872665, -0.0570665, 0.00222445, 0.0665204, -0.00195409, -0.0872665, -0.0540541, 0.00125866, 0.0654472, 0.00683005, 0.0872665, -0.0570665, 0.00222445, 0.0665204, -0.00195409, -0.0872665, -0.0540541, 0.00125866, 0.0654472, 0.00683005, 0, -0.25, 0, 0.545814, -0.0032239, 3.14159, 0, -0.0223181, 0.25, 0),
+"times": PackedFloat32Array(0, 0.559809, 0.648445, 0.755742, 0.848753, 0.95605, 1.03156, 1.13886, 1.21655, 1.32384, 1.41352, 1.95933)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ud1tp"]
+_data = {
+"RESET": SubResource("Animation_dba8t"),
+"game_over": SubResource("Animation_13wqp")
+}
+
+[node name="gameover" type="Label"]
+offset_left = 95.0
+offset_top = 856.0
+offset_right = 992.0
+offset_bottom = 1067.0
+pivot_offset = Vector2(464, 103)
+theme_override_colors/font_color = Color(0, 1, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.121569, 0.301961, 1)
+theme_override_constants/outline_size = 29
+theme_override_fonts/font = ExtResource("1_yx4c1")
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_bqhur")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ud1tp")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

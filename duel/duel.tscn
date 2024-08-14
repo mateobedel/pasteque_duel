@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dckowycakiu1k"]
+
+[ext_resource type="Script" path="res://duel/duel.gd" id="1_oae7v"]
+[ext_resource type="PackedScene" uid="uid://c8e72tj2l1sol" path="res://obj/box.tscn" id="1_vmmln"]
+[ext_resource type="PackedScene" uid="uid://j26wp0qwv20w" path="res://duel/multi_score.tscn" id="3_1p8ly"]
+[ext_resource type="PackedScene" uid="uid://dt10dv0yiheoh" path="res://obj/gameover.tscn" id="4_0asxw"]
+[ext_resource type="PackedScene" uid="uid://5fx12ah5dwxr" path="res://obj/bonus_bar.tscn" id="5_785bi"]
+
+[node name="duel" type="Node2D"]
+script = ExtResource("1_oae7v")
+
+[node name="box_joueur" parent="." instance=ExtResource("1_vmmln")]
+position = Vector2(1431, 511)
+scale = Vector2(0.6, 0.6)
+
+[node name="box_adv" parent="." instance=ExtResource("1_vmmln")]
+position = Vector2(543, 511)
+scale = Vector2(0.6, 0.6)
+
+[node name="score_player" parent="." instance=ExtResource("3_1p8ly")]
+position = Vector2(899, 1019)
+
+[node name="score_adv" parent="." instance=ExtResource("3_1p8ly")]
+position = Vector2(6, 1016)
+
+[node name="gameover" parent="." instance=ExtResource("4_0asxw")]
+visible = false
+z_index = 100
+offset_left = 531.0
+offset_top = 430.0
+offset_right = 1428.0
+offset_bottom = 641.0
+multi = true
+
+[node name="bonus_bar" parent="." instance=ExtResource("5_785bi")]
+offset_left = 977.0
+offset_top = 566.0
+offset_right = 977.0
+offset_bottom = 566.0
+scale = Vector2(0.8, 0.8)

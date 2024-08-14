@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dckowycakiu1k"]
+
+[ext_resource type="Script" path="res://duel/duel.gd" id="1_oae7v"]
+[ext_resource type="PackedScene" uid="uid://c8e72tj2l1sol" path="res://box.tscn" id="1_vmmln"]
+
+[node name="duel" type="Node2D"]
+script = ExtResource("1_oae7v")
+
+[node name="box" parent="." instance=ExtResource("1_vmmln")]
+position = Vector2(538, 1086)
+
+[node name="box2" parent="." instance=ExtResource("1_vmmln")]
+position = Vector2(539, 370)
+scale = Vector2(0.4, 0.4)

@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx510g86babdc"]
+
+[ext_resource type="Theme" uid="uid://bw776ul7fdkxe" path="res://ressources/bouton.tres" id="1_btgwg"]
+[ext_resource type="Script" path="res://obj/game_over_screen.gd" id="1_ou2cd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlhbp"]
+bg_color = Color(0, 1, 0.6, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 1, 0.6, 1)
+
+[sub_resource type="Theme" id="Theme_x4jqe"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_rlhbp")
+
+[node name="game_over_screen" type="Node2D"]
+script = ExtResource("1_ou2cd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 179.0
+offset_top = 131.0
+offset_right = 897.0
+offset_bottom = 299.0
+theme = ExtResource("1_btgwg")
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 171.0
+offset_top = 231.0
+offset_right = 889.0
+offset_bottom = 399.0
+theme = ExtResource("1_btgwg")
+theme_override_colors/font_color = Color(0, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 60
+text = "SCORE : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 225.0
+offset_top = 367.0
+offset_right = 865.0
+offset_bottom = 1502.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x4jqe")
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 121.0
+offset_top = 1644.0
+offset_right = 973.0
+offset_bottom = 1766.0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="restart" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_btgwg")
+theme_override_font_sizes/font_size = 80
+text = "RESTART"
+
+[node name="menu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_btgwg")
+theme_override_font_sizes/font_size = 80
+text = "MENU"
+
+[connection signal="pressed" from="HBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="HBoxContainer/menu" to="." method="_on_menu_pressed"]

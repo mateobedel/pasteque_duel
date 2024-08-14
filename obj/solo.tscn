@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnmoyifehcsf1"]
+
+[ext_resource type="PackedScene" uid="uid://c8e72tj2l1sol" path="res://obj/box.tscn" id="1_k33to"]
+[ext_resource type="PackedScene" uid="uid://c02xl5sblk5t8" path="res://obj/poseur.tscn" id="2_4x7um"]
+[ext_resource type="PackedScene" uid="uid://b6lqfrlcmotsg" path="res://obj/score.tscn" id="3_ykkiy"]
+[ext_resource type="PackedScene" uid="uid://dt10dv0yiheoh" path="res://obj/gameover.tscn" id="4_a10ty"]
+
+[node name="Solo" type="Node2D"]
+
+[node name="box" parent="." instance=ExtResource("1_k33to")]
+position = Vector2(540, 973)
+
+[node name="poseur" parent="." instance=ExtResource("2_4x7um")]
+
+[node name="score" parent="." instance=ExtResource("3_ykkiy")]
+position = Vector2(16, 1784)
+
+[node name="gameover" parent="." instance=ExtResource("4_a10ty")]
+visible = false

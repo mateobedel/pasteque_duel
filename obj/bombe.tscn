@@ -1,0 +1,221 @@
+[gd_scene load_steps=14 format=3 uid="uid://bm6x1ytrnr844"]
+
+[ext_resource type="Script" path="res://obj/bombe.gd" id="1_trwvg"]
+[ext_resource type="Texture2D" uid="uid://tfdvq223bxf0" path="res://fruits/bombe.png" id="2_xnjj5"]
+[ext_resource type="Texture2D" uid="uid://c0xwymkyvd65e" path="res://fruits/part.png" id="3_qmelx"]
+[ext_resource type="Texture2D" uid="uid://cbljjntb824qg" path="res://ressources/etoile.png" id="4_gk1m3"]
+[ext_resource type="AudioStream" uid="uid://ds1kj6eoc5tl1" path="res://sound/explosion.mp3" id="5_c2au1"]
+
+[sub_resource type="Animation" id="Animation_r3tsk"]
+resource_name = "explosion"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.6, -0.103766, -0.00397563, 0.103766, 0.00397563, 0.8, -0.0747653, -0.0177238, 0.295571, -0.069261, 0, -0.0056524, -0.052536, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.6, -0.25, 0, 0.11706, -0.00117809, 0.8, -0.110973, 0, 0.283112, -0.0950295, 0, -0.0056524, 0.0608457, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_b4y46"]
+resource_name = "flash"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 3, 0, 3, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 10, -0.0666667, 0, 0.0666667, 0, 1, -0.25, 0, 0.25, 0, 10, -0.05, 0, 0.05, 0, 1, -0.25, 0, 0.25, 0, 10, -0.05, 0, 0.05, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 2, 0, 3, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 10, -0.0666667, 0, 0.0666667, 0, 1, -0.25, 0, 0.25, 0, 10, -0.0666667, 0, 0.0666667, 0, 1, -0.25, 0, 0.25, 0, 10, -0.05, 0, 0.05, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0, 2, 0, 3, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 10, -0.0666667, 0, 0.0666667, 0, 1, -0.25, 0, 0.25, 0, 10, -0.0666667, 0, 0.0666667, 0, 1, -0.25, 0, 0.25, 0, 10, -0.05, 0, 0.05, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qlln"]
+_data = {
+"explosion": SubResource("Animation_r3tsk"),
+"flash": SubResource("Animation_b4y46")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fbjk2"]
+radius = 78.0
+
+[sub_resource type="Curve" id="Curve_tns5l"]
+_data = [Vector2(0.0168712, 1), 0.0, 0.0, 0, 0, Vector2(0.642638, 0.975729), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_rkygf"]
+offsets = PackedFloat32Array(0.116838, 0.340206, 0.56701, 0.75945)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.858824, 0, 1, 1, 0.333333, 0, 1, 0.036, 0.036, 0.2, 1)
+
+[sub_resource type="Curve" id="Curve_xbiou"]
+_data = [Vector2(0.00153375, 0.987865), 0.0, 0.154536, 0, 0, Vector2(0.157975, 0.969662), 0.0, 0.0, 0, 0, Vector2(0.657975, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.0630283, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_uucqy"]
+offsets = PackedFloat32Array(0, 0.199313, 0.501718)
+colors = PackedColorArray(1, 1, 0.521569, 1, 1, 0.901961, 0.141176, 1, 1, 0.3325, 0.11, 1)
+
+[node name="bombe" type="RigidBody2D" groups=["groupe_bombe"]]
+position = Vector2(-1, 0)
+script = ExtResource("1_trwvg")
+
+[node name="death" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_4qlln")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 100
+position = Vector2(0, -12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xnjj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["groupe_bombe"]]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_fbjk2")
+
+[node name="explosion" type="CPUParticles2D" parent="."]
+position = Vector2(-2, -2)
+emitting = false
+amount = 150
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("3_qmelx")
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 150.0
+initial_velocity_max = 600.0
+scale_amount_min = 0.06
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_tns5l")
+color_ramp = SubResource("Gradient_rkygf")
+
+[node name="sparks" type="CPUParticles2D" parent="."]
+position = Vector2(1, -110)
+amount = 35
+texture = ExtResource("4_gk1m3")
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 600)
+initial_velocity_min = 108.57
+initial_velocity_max = 548.57
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+damping_max = 0.755
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.06
+scale_amount_max = 0.42
+scale_amount_curve = SubResource("Curve_xbiou")
+color_ramp = SubResource("Gradient_uucqy")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="explosion2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_c2au1")
+volume_db = -12.042
+
+[connection signal="timeout" from="death" to="." method="_on_death_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

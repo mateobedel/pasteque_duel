@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dt80q3s2fnf0h"]
+
+[ext_resource type="Script" path="res://fruits/fruit.gd" id="1_pnt0i"]
+[ext_resource type="Texture2D" uid="uid://dqhpic20vk5et" path="res://fruits/bannane.png" id="2_tgvvv"]
+[ext_resource type="Texture2D" uid="uid://c0xwymkyvd65e" path="res://fruits/part.png" id="3_b3lpf"]
+[ext_resource type="AudioStream" uid="uid://cvdsqsxwwd7t" path="res://sound/pop.mp3" id="4_op01s"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3kpwp"]
+friction = 0.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jmdfe"]
+resource_local_to_scene = true
+radius = 76.6551
+
+[sub_resource type="Curve" id="Curve_pj5yj"]
+_data = [Vector2(0.0619658, 0.980441), 0.0, 0.106612, 0, 0, Vector2(0.728633, 0.927758), -0.302461, -0.302461, 0, 0, Vector2(1, 0), -0.02083, 0.0, 0, 0]
+point_count = 3
+
+[node name="fruit" type="RigidBody2D" groups=["Groupe_fruit"]]
+physics_material_override = SubResource("PhysicsMaterial_3kpwp")
+gravity_scale = 1.8
+script = ExtResource("1_pnt0i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jmdfe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_tgvvv")
+
+[node name="can_loose" type="Timer" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(4, 3)
+emitting = false
+amount = 50
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+lifetime_randomness = 0.61
+texture = ExtResource("3_b3lpf")
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 250.0
+initial_velocity_max = 700.0
+scale_amount_min = 0.3
+scale_amount_max = 0.7
+scale_amount_curve = SubResource("Curve_pj5yj")
+
+[node name="pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_op01s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="can_loose" to="." method="_on_can_loose_timeout"]

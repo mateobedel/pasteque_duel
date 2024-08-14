@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://kinl2gog064l"]
+
+[ext_resource type="Script" path="res://obj/ballon.gd" id="1_puj02"]
+[ext_resource type="Texture2D" uid="uid://cplgqmlq5gji0" path="res://fruits/ballon.png" id="2_81yx4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1cglj"]
+bounce = 0.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2h56"]
+radius = 74.0
+
+[node name="ballon" type="RigidBody2D" groups=["groupe_ballon"]]
+physics_material_override = SubResource("PhysicsMaterial_1cglj")
+script = ExtResource("1_puj02")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_81yx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["groupe_ballon"]]
+shape = SubResource("CircleShape2D_q2h56")
